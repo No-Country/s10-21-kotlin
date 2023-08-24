@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:padding="10dp"
-    tools:context=".RegisterFragment">
+    tools:context=".feature_authentication.signup.RegisterFragment">
 
     <ImageView
         android:id="@+id/imageView"
@@ -69,7 +69,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonRegister"
         style="@style/button_third_onboarding"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
