@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">NoCountryDonation</string>
     <string name="text_first_onbording">Find Blood Donors</string>
@@ -10,6 +11,4 @@
     <string name="text_forgetpassword">Forgot Password?</string>
     <string name="hint_email">Email</string>
     <string name="hint_password">Password</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
