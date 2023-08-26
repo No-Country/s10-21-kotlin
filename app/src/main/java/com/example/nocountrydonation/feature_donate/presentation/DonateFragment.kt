@@ -50,7 +50,7 @@ class DonateFragment : Fragment() {
                     etPhone.text.toString(),
                     etNote.text.toString()
                 )
-                val verification = listOf(donor.city,donor.hospital,donor.blood,donor.phone,donor.note).any{it.isBlank()}
+                val verification = listOf(donor.city,donor.hospital,donor.blood,donor.name,donor.note).any{it.isBlank()}
                 if(verification){
                     snackBar("Por favor llene todos los campos")
                 }else{
@@ -58,12 +58,13 @@ class DonateFragment : Fragment() {
                         "city" to donor.city,
                         "hospital" to donor.hospital,
                         "blood" to donor.blood,
-                        "phone" to donor.phone,
+                        "name" to donor.name,
                         "note" to donor.note,
-                        "created_at" to Timestamp(Date()).toDate()
+                        "created_at" to Timestamp(Date()).toDate(),
+                        "image" to "https://firebasestorage.googleapis.com/v0/b/nocountrydonation.appspot.com/o/perfil-del-usuario.png?alt=media&token=39f35c98-cc1f-42de-8459-ad595e672d35"
                     )
                     db.collection("donantes")
-                        .document(donor.phone)
+                        .document(donor.name)
                         .set(dato)
                         .addOnSuccessListener { documentReference ->
                             Log.d(

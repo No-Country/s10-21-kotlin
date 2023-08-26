@@ -34,6 +34,9 @@
         <action
             android:id="@+id/action_homeFragment_to_donateFragment42"
             app:destination="@id/donateFragment4" />
+        <action
+            android:id="@+id/action_homeFragment_to_donorsFragment"
+            app:destination="@id/donorsFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -54,5 +57,14 @@
             app:destination="@id/homeFragment"
             app:popUpTo="@id/donateFragment4"
             app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/donorsFragment"
+        android:name="com.example.nocountrydonation.feature_donors.presentation.DonorsFragment"
+        android:label="fragment_donors"
+        tools:layout="@layout/fragment_donors" >
+        <action
+            android:id="@+id/action_donorsFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
 </navigation>

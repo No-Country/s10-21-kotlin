@@ -10,6 +10,7 @@
     <string name="text_forgetpassword">Forgot Password?</string>
     <string name="hint_email">Email</string>
     <string name="hint_password">Password</string>
+    <string name="title_toolbard" translatable="false">Buscar Donadores</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string-array name="Blood">

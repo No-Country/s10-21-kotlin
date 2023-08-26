@@ -26,9 +26,9 @@
             android:textAlignment="center"
             app:navigationIcon="@drawable/ic_back"
             app:titleCentered="true"
+            android:background="#F8F3F3"
             app:titleTextAppearance="@style/TitleToolbar"
-            app:titleTextColor="@color/black"
-            tools:title="Crear una donacion" />
+            app:titleTextColor="@color/black"/>
     </com.google.android.material.appbar.AppBarLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -114,16 +114,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilBlood"
-        app:startIconDrawable="@drawable/ic_phone"
+        app:startIconDrawable="@drawable/nick"
         app:startIconTint="@color/red">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Telefono"
-            android:inputType="phone"
-            android:maxLength="19"
+            android:hint="Nombre y Apellido"
+            android:inputType="text"
+            android:maxLength="40"
             android:textColor="@color/black" />
     </com.google.android.material.textfield.TextInputLayout>
 

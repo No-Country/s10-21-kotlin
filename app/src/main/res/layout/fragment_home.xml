@@ -13,7 +13,7 @@
         android:layout_width="0dp"
         android:layout_height="200dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
         android:scaleType="centerCrop"
         android:src="@drawable/imagehome"
@@ -33,7 +33,7 @@
         android:textColor="@color/black"
         android:textSize="15sp"
         app:cornerRadius="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buttonDonate"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
@@ -41,7 +41,6 @@
         android:id="@+id/buttonDonate"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
-        android:layout_marginTop="32dp"
         android:backgroundTint="@color/white"
         android:drawableTop="@drawable/donar"
         android:text="Animate a Donar"
@@ -49,6 +48,61 @@
         android:textSize="15sp"
         app:cornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonFindDonors"
+        app:layout_constraintTop_toTopOf="@+id/buttonFindDonors" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="Solicitud de donación"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvHome"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        tools:listitem="@layout/request_item" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_marginTop="28dp"
+        android:backgroundTint="@color/white"
+        android:drawableTop="@drawable/ion_search"
+        android:text="Solicitud de donación"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:cornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonFindDonors" />
+
+    <ProgressBar
+        android:id="@+id/progressBarHome"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 </androidx.constraintlayout.widget.ConstraintLayout>
