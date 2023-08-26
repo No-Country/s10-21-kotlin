@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F5F5F5"
-    tools:context=".DonateFragment">
+    tools:context=".feature_donate.presentation.DonateFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
@@ -38,20 +38,20 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
+        android:hint="Ciudad"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:textColorHint="@color/black"
-        app:startIconDrawable="@drawable/ic_location"
-        app:startIconTint="@color/red"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+        app:startIconDrawable="@drawable/ic_location"
+        app:startIconTint="@color/red">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etCity"
+        <AutoCompleteTextView
+            android:id="@+id/autocompleteCity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="City"
-            android:inputType="text"
-            android:maxLength="40"
+            android:inputType="none"
             android:textColor="@color/black" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -64,15 +64,15 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
         android:hint="Hospital"
-        app:startIconDrawable="@drawable/ic_hospital"
-        app:startIconTint="@color/red"
         android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilCity">
+        app:layout_constraintTop_toBottomOf="@+id/tilCity"
+        app:startIconDrawable="@drawable/ic_hospital"
+        app:startIconTint="@color/red">
 
         <AutoCompleteTextView
-            android:id="@+id/autoComplete"
+            android:id="@+id/autoCompleteHospital"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:inputType="none"
@@ -88,12 +88,12 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
         android:hint="Tipo de Sangre"
-        app:startIconDrawable="@drawable/ic_bloods"
-        app:startIconTint="@color/red"
         android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilDrow">
+        app:layout_constraintTop_toBottomOf="@+id/tilDrow"
+        app:startIconDrawable="@drawable/ic_bloods"
+        app:startIconTint="@color/red">
 
         <AutoCompleteTextView
             android:id="@+id/autoCompleteBlood"
@@ -110,21 +110,21 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
-        app:startIconDrawable="@drawable/ic_phone"
-        app:startIconTint="@color/red"
         android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilBlood">
+        app:layout_constraintTop_toBottomOf="@+id/tilBlood"
+        app:startIconDrawable="@drawable/ic_phone"
+        app:startIconTint="@color/red">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Telefono"
+            android:inputType="phone"
             android:maxLength="19"
-            android:textColor="@color/black"
-            android:inputType="phone" />
+            android:textColor="@color/black" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -134,12 +134,12 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
-        app:startIconDrawable="@drawable/ic_note"
-        app:startIconTint="@color/red"
         android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilPhone">
+        app:layout_constraintTop_toBottomOf="@+id/tilPhone"
+        app:startIconDrawable="@drawable/ic_note"
+        app:startIconTint="@color/red">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etNote"
@@ -147,8 +147,24 @@
             android:layout_height="wrap_content"
             android:hint="Agrega una Nota"
             android:inputType="text"
-            android:textColor="@color/black"
-            android:maxLines="5" />
+            android:maxLines="5"
+            android:textColor="@color/black" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonSend"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="42dp"
+        android:layout_marginEnd="24dp"
+        android:backgroundTint="#FF2156"
+        android:text="Enviar"
+        android:fontFamily="@font/roboto_medium"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/tilNote"
+        app:layout_constraintStart_toStartOf="@+id/tilNote"
+        app:layout_constraintTop_toBottomOf="@+id/tilNote" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

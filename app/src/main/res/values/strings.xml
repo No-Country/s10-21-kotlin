@@ -22,4 +22,17 @@
         <item>AB+</item>
         <item>AB-</item>
     </string-array>
+    <string-array name="Citys">
+        <item>Ledesma</item>
+        <item>Fraile Pintado</item>
+        <item>Calilegua</item>
+        <item>Caimancito</item>
+    </string-array>
+    <string-array name="Hospital">
+        <item>Hospital Dr oscar orias Ledesma</item>
+        <item>Clinica Ledesma</item>
+        <item>Clinica San lorenzo</item>
+        <item>Hospital de Calilegua</item>
+        <item>Hospital Presbitero Escolastico Zegada</item>
+    </string-array>
 </resources>
