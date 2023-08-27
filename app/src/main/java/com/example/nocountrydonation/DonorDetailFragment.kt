@@ -37,6 +37,9 @@ class DonorDetailFragment : Fragment() {
         binding?.buttonShowMaps?.setOnClickListener {
             findNavController().navigate(R.id.action_donorDetailFragment_to_mapsFragment)
         }
+        binding?.toolbar?.setOnClickListener {
+            findNavController().navigate(R.id.action_donorDetailFragment_to_donorsFragment)
+        }
 
         return binding?.root
     }

@@ -38,6 +38,9 @@ class DonateFragment : Fragment() {
         val hospitalAdapter = ArrayAdapter(requireContext(), R.layout.dropdow_item, hospital)
         binding?.autoCompleteHospital?.setAdapter(hospitalAdapter)
         sendDonation()
+        binding?.toolbar?.setOnClickListener {
+            findNavController().navigate(R.id.action_donateFragment4_to_homeFragment)
+        }
         return binding?.root
     }
     private fun sendDonation(){
