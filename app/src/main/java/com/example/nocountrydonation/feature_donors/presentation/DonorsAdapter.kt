@@ -1,16 +1,18 @@
 package com.example.nocountrydonation.feature_donors.presentation
 
-import android.app.Activity
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.nocountrydonation.MainActivity
 import com.example.nocountrydonation.databinding.DonorsItemBinding
 import com.example.nocountrydonation.feature_donors.domain.Donors
 
-class DonorsAdapter(private val list: List<Donors>) :
+class DonorsAdapter(private val list: List<Donors>, private val onClickedDonors : OnDonorClicked) :
     RecyclerView.Adapter<DonorsAdapter.ViewHolder>() {
+
+    interface OnDonorClicked{
+        fun OnDonorClickListener(donors: Donors, position: Int)
+    }
     inner class ViewHolder(private val binding: DonorsItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(donors: Donors) {
@@ -30,8 +32,11 @@ class DonorsAdapter(private val list: List<Donors>) :
     }
 
     override fun onBindViewHolder(holder: DonorsAdapter.ViewHolder, position: Int) {
-        val list2 = list[position]
-        holder.bind(list2)
+        //val list2 = list[position]
+        holder.bind(list[position])
+        holder.itemView.setOnClickListener {
+            onClickedDonors.OnDonorClickListener(list[position], position)
+        }
     }
 
     override fun getItemCount() = list.size

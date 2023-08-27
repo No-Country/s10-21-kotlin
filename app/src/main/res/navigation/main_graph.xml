@@ -66,5 +66,17 @@
         <action
             android:id="@+id/action_donorsFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_donorsFragment_to_donorDetailFragment"
+            app:destination="@id/donorDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/donorDetailFragment"
+        android:name="com.example.nocountrydonation.DonorDetailFragment"
+        android:label="fragment_donor_detail"
+        tools:layout="@layout/fragment_donor_detail">
+        <argument
+            android:name="detail"
+            app:argType="com.example.nocountrydonation.feature_donors.domain.Donors"/>
     </fragment>
 </navigation>

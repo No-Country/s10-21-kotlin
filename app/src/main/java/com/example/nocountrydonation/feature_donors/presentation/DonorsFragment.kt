@@ -11,12 +11,14 @@ import androidx.navigation.fragment.findNavController
 import com.example.nocountrydonation.MainActivity
 import com.example.nocountrydonation.R
 import com.example.nocountrydonation.databinding.FragmentDonorsBinding
+import com.example.nocountrydonation.feature_donate.presentation.DonateFragmentDirections
+import com.example.nocountrydonation.feature_donors.domain.Donors
 import com.example.nocountrydonation.util.ResultState
 import com.google.firebase.firestore.FirebaseFirestore
 import org.koin.android.ext.android.get
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class DonorsFragment : Fragment() {
+class DonorsFragment : Fragment(), DonorsAdapter.OnDonorClicked {
     private var binding : FragmentDonorsBinding? = null
     private val db = get<FirebaseFirestore>()
     private lateinit var donorsAdapter : DonorsAdapter
@@ -32,7 +34,7 @@ class DonorsFragment : Fragment() {
                 is ResultState.Error -> binding?.progressBarDonors?.isVisible = false
                 is ResultState.Loading -> binding?.progressBarDonors?.isVisible = true
                 is ResultState.Success -> {
-                    donorsAdapter = DonorsAdapter(result.data)
+                    donorsAdapter = DonorsAdapter(result.data,this)
                     binding?.rvDonors?.adapter = donorsAdapter
                     binding?.progressBarDonors?.isVisible = false
                 }
@@ -42,6 +44,11 @@ class DonorsFragment : Fragment() {
             findNavController().navigate(R.id.action_donorsFragment_to_homeFragment)
         }
         return binding?.root
+    }
+
+    override fun OnDonorClickListener(donors: Donors, position: Int) {
+        val action = DonorsFragmentDirections.actionDonorsFragmentToDonorDetailFragment(donors)
+        findNavController().navigate(action)
     }
 
 }
