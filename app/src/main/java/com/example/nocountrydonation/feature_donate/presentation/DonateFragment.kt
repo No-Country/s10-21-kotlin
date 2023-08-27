@@ -28,6 +28,14 @@ class DonateFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentDonateBinding.inflate(inflater, container, false)
+        setAutocomplete()
+        sendDonation()
+        binding?.toolbarRequest?.setOnClickListener {
+            findNavController().navigate(R.id.action_donateFragment4_to_homeFragment)
+        }
+        return binding?.root
+    }
+    private fun setAutocomplete(){
         val blood = resources.getStringArray(R.array.Blood)
         val arrayAdapter = ArrayAdapter(requireContext(),R.layout.dropdow_item, blood)
         binding?.autoCompleteBlood?.setAdapter(arrayAdapter)
@@ -37,11 +45,6 @@ class DonateFragment : Fragment() {
         val hospital = resources.getStringArray(R.array.Hospital)
         val hospitalAdapter = ArrayAdapter(requireContext(), R.layout.dropdow_item, hospital)
         binding?.autoCompleteHospital?.setAdapter(hospitalAdapter)
-        sendDonation()
-        binding?.toolbar?.setOnClickListener {
-            findNavController().navigate(R.id.action_donateFragment4_to_homeFragment)
-        }
-        return binding?.root
     }
     private fun sendDonation(){
         binding?.apply {

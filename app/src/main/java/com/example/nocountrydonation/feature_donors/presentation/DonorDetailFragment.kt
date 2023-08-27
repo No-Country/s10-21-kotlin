@@ -1,25 +1,17 @@
-package com.example.nocountrydonation
+package com.example.nocountrydonation.feature_donors.presentation
 
-import android.Manifest
-import android.annotation.SuppressLint
-import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.app.ActivityCompat
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
+import com.example.nocountrydonation.MainActivity
+import com.example.nocountrydonation.R
 import com.example.nocountrydonation.databinding.FragmentDonorDetailBinding
 import com.example.nocountrydonation.feature_donors.domain.Donors
-import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationServices
-import com.google.android.gms.maps.CameraUpdateFactory
-import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.LatLng
 
 class DonorDetailFragment : Fragment() {
     private var binding: FragmentDonorDetailBinding? = null
@@ -37,7 +29,7 @@ class DonorDetailFragment : Fragment() {
         binding?.buttonShowMaps?.setOnClickListener {
             findNavController().navigate(R.id.action_donorDetailFragment_to_mapsFragment)
         }
-        binding?.toolbar?.setOnClickListener {
+        binding?.toolbarRequest?.setOnClickListener {
             findNavController().navigate(R.id.action_donorDetailFragment_to_donorsFragment)
         }
 

@@ -24,12 +24,11 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(inflater , container,false)
-        binding?.buttonDonate?.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_donateFragment42)
-        }
-        binding?.buttonFindDonors?.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_donorsFragment)
-        }
+        setNavigation()
+        setRecyclerview()
+        return binding?.root
+    }
+    private fun setRecyclerview(){
         viewModel.getDonors().observe(viewLifecycleOwner, Observer { result ->
             when(result){
                 is ResultState.Error -> binding?.progressBarHome?.isVisible = false
@@ -41,6 +40,16 @@ class HomeFragment : Fragment() {
                 }
             }
         })
-        return binding?.root
+    }
+    private fun setNavigation(){
+        binding?.buttonDonate?.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_donateFragment42)
+        }
+        binding?.buttonFindDonors?.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_donorsFragment)
+        }
+        binding?.buttonRequest?.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_requestFragment)
+        }
     }
 }

@@ -6,19 +6,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F5F5F5"
-    tools:context=".DonorDetailFragment">
+    tools:context=".feature_donors.presentation.DonorDetailFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#F5F5F5"
+        android:background="#80E4D5D5"
         android:elevation="4dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar"
+            android:id="@+id/toolbarRequest"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:elevation="4dp"
@@ -49,6 +49,7 @@
         android:layout_marginTop="24dp"
         android:scaleType="centerCrop"
         android:src="@drawable/error"
+        style="@style/ShapeCornerSize50Percent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"

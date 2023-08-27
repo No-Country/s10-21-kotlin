@@ -37,6 +37,9 @@
         <action
             android:id="@+id/action_homeFragment_to_donorsFragment"
             app:destination="@id/donorsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_requestFragment"
+            app:destination="@id/requestFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -72,7 +75,7 @@
     </fragment>
     <fragment
         android:id="@+id/donorDetailFragment"
-        android:name="com.example.nocountrydonation.DonorDetailFragment"
+        android:name="com.example.nocountrydonation.feature_donors.presentation.DonorDetailFragment"
         android:label="fragment_donor_detail"
         tools:layout="@layout/fragment_donor_detail">
         <argument
@@ -90,4 +93,13 @@
         android:name="com.example.nocountrydonation.MapsFragment"
         android:label="fragment_maps"
         tools:layout="@layout/fragment_maps" />
+    <fragment
+        android:id="@+id/requestFragment"
+        android:name="com.example.nocountrydonation.feature_request.RequestFragment"
+        android:label="fragment_request"
+        tools:layout="@layout/fragment_request" >
+        <action
+            android:id="@+id/action_requestFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 </navigation>

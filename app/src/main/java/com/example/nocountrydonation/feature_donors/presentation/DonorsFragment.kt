@@ -29,6 +29,13 @@ class DonorsFragment : Fragment(), DonorsAdapter.OnDonorClicked {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentDonorsBinding.inflate(inflater, container, false)
+        binding?.toolbarRequest?.setOnClickListener {
+            findNavController().navigate(R.id.action_donorsFragment_to_homeFragment)
+        }
+        setRecyclerview()
+        return binding?.root
+    }
+    private fun setRecyclerview(){
         viewModel.getDonors().observe(viewLifecycleOwner, Observer { result ->
             when(result){
                 is ResultState.Error -> binding?.progressBarDonors?.isVisible = false
@@ -40,12 +47,7 @@ class DonorsFragment : Fragment(), DonorsAdapter.OnDonorClicked {
                 }
             }
         })
-        binding?.toolbar?.setOnClickListener {
-            findNavController().navigate(R.id.action_donorsFragment_to_homeFragment)
-        }
-        return binding?.root
     }
-
     override fun OnDonorClickListener(donors: Donors, position: Int) {
         val action = DonorsFragmentDirections.actionDonorsFragmentToDonorDetailFragment(donors)
         findNavController().navigate(action)
