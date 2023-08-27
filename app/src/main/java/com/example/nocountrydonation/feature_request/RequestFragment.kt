@@ -36,6 +36,13 @@ class RequestFragment : Fragment() {
                 is ResultState.Error -> binding?.progressBarRequest?.isVisible = false
                 is ResultState.Loading -> binding?.progressBarRequest?.isVisible = true
                 is ResultState.Success -> {
+                    if(result.data.isEmpty()){
+                        binding?.textViewAlert2?.isVisible = true
+                        binding?.progressBarRequest?.isVisible = false
+                        return@Observer
+                    }else{
+                        binding?.textViewAlert2?.isVisible = false
+                    }
                     requestAdapter = RequestAdapter(result.data)
                     binding?.rvRequest?.adapter = requestAdapter
                     binding?.progressBarRequest?.isVisible = false

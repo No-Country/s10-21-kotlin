@@ -34,6 +34,13 @@ class HomeFragment : Fragment() {
                 is ResultState.Error -> binding?.progressBarHome?.isVisible = false
                 is ResultState.Loading -> binding?.progressBarHome?.isVisible = true
                 is ResultState.Success -> {
+                    if(result.data.isEmpty()){
+                        binding?.textViewAlert?.isVisible = true
+                        binding?.progressBarHome?.isVisible = false
+                        return@Observer
+                    }else{
+                        binding?.textViewAlert?.isVisible = false
+                    }
                     homeAdapter = HomeAdapter(result.data)
                     binding?.rvHome?.adapter = homeAdapter
                     binding?.progressBarHome?.isVisible = false

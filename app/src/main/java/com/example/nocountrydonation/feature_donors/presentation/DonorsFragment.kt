@@ -41,6 +41,13 @@ class DonorsFragment : Fragment(), DonorsAdapter.OnDonorClicked {
                 is ResultState.Error -> binding?.progressBarDonors?.isVisible = false
                 is ResultState.Loading -> binding?.progressBarDonors?.isVisible = true
                 is ResultState.Success -> {
+                    if(result.data.isEmpty()){
+                        binding?.textView8Alert?.isVisible = true
+                        binding?.progressBarDonors?.isVisible = false
+                        return@Observer
+                    }else{
+                        binding?.textView8Alert?.isVisible = false
+                    }
                     donorsAdapter = DonorsAdapter(result.data,this)
                     binding?.rvDonors?.adapter = donorsAdapter
                     binding?.progressBarDonors?.isVisible = false
