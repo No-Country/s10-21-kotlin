@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.nocountrydonation.MainActivity
 import com.example.nocountrydonation.R
 import com.example.nocountrydonation.databinding.FragmentRegisterBinding
 import com.example.nocountrydonation.feature_authentication.signup.domain.NewUser
@@ -23,6 +24,7 @@ class RegisterFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentRegisterBinding.inflate(inflater, container, false)
+        (activity as MainActivity).showBottomNav(false)
         signup()
         return binding?.root
     }

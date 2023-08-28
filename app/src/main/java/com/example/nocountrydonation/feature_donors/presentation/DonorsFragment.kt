@@ -11,7 +11,6 @@ import androidx.navigation.fragment.findNavController
 import com.example.nocountrydonation.MainActivity
 import com.example.nocountrydonation.R
 import com.example.nocountrydonation.databinding.FragmentDonorsBinding
-import com.example.nocountrydonation.feature_donate.presentation.DonateFragmentDirections
 import com.example.nocountrydonation.feature_donors.domain.Donors
 import com.example.nocountrydonation.util.ResultState
 import com.google.firebase.firestore.FirebaseFirestore
@@ -23,12 +22,14 @@ class DonorsFragment : Fragment(), DonorsAdapter.OnDonorClicked {
     private val db = get<FirebaseFirestore>()
     private lateinit var donorsAdapter : DonorsAdapter
     private val viewModel : DonorsViewModel by viewModel()
+    private lateinit var list : List<Donors>
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentDonorsBinding.inflate(inflater, container, false)
+        (activity as MainActivity).showBottomNav(false)
         binding?.toolbarRequest?.setOnClickListener {
             findNavController().navigate(R.id.action_donorsFragment_to_homeFragment)
         }
@@ -59,5 +60,33 @@ class DonorsFragment : Fragment(), DonorsAdapter.OnDonorClicked {
         val action = DonorsFragmentDirections.actionDonorsFragmentToDonorDetailFragment(donors)
         findNavController().navigate(action)
     }
+//    private fun setListener(){
+//        binding?.searchView?.setOnQueryTextListener(object : android.widget.SearchView.OnQueryTextListener {
+//            override fun onQueryTextSubmit(query: String?): Boolean {
+//                TODO("Not yet implemented")
+//            }
+//
+//            override fun onQueryTextChange(newText: String?): Boolean {
+//                TODO("Not yet implemented")
+//            }
+//        })
+//    }
+
+//    private fun filterList(q : String?){
+//        if(q != null ){
+//            val filtered = mutableListOf<Donors>()
+//            for(i in list ){
+//                if(i.name.lowercase(Locale.ROOT).contains(q))
+//                    filtered.add(i)
+//
+//            }
+//            if(filtered.isEmpty()){
+//                Toast.makeText(requireContext(),"No Data",Toast.LENGTH_SHORT).show()
+//            }
+//            else{
+//                donorsAdapter.set
+//            }
+//        }
+//    }
 
 }

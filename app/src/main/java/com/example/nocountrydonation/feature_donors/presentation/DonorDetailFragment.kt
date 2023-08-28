@@ -23,6 +23,7 @@ class DonorDetailFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentDonorDetailBinding.inflate(inflater, container, false)
+        (activity as MainActivity).showBottomNav(false)
         bindDonorsDetail(args.detail)
         binding?.buttonPermission?.setOnClickListener {
             (activity as MainActivity).showPermission()

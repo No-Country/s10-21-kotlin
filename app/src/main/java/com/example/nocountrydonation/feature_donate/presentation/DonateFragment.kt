@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.navigation.fragment.findNavController
+import com.example.nocountrydonation.MainActivity
 import com.example.nocountrydonation.R
 import com.example.nocountrydonation.databinding.FragmentDonateBinding
 import com.example.nocountrydonation.feature_donate.domain.Donor
@@ -28,6 +29,7 @@ class DonateFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentDonateBinding.inflate(inflater, container, false)
+        (activity as MainActivity).showBottomNav(false)
         setAutocomplete()
         sendDonation()
         binding?.toolbarRequest?.setOnClickListener {

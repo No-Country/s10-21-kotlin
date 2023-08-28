@@ -1,17 +1,22 @@
 package com.example.nocountrydonation.feature_donors.presentation
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import coil.target.ImageViewTarget
-import com.bumptech.glide.Glide
 import com.example.nocountrydonation.R
 import com.example.nocountrydonation.databinding.DonorsItemBinding
 import com.example.nocountrydonation.feature_donors.domain.Donors
 
-class DonorsAdapter(private val list: List<Donors>, private val onClickedDonors : OnDonorClicked) :
+class DonorsAdapter(private val list: List<Donors>, private val onClickedDonors: OnDonorClicked) :
     RecyclerView.Adapter<DonorsAdapter.ViewHolder>() {
+
+    private var savelist : ArrayList<Donors> = arrayListOf()
+
+    init {
+        savelist.addAll(list)
+    }
 
     interface OnDonorClicked{
         fun OnDonorClickListener(donors: Donors, position: Int)
@@ -48,4 +53,21 @@ class DonorsAdapter(private val list: List<Donors>, private val onClickedDonors 
     }
 
     override fun getItemCount() = list.size
+
+//    @SuppressLint("NotifyDataSetChanged")
+//    fun filtrar(q : String){
+//        if(q.isEmpty()){
+//            list.clear()
+//            list.addAll(savelist)
+//        }else{
+//            val newList : ArrayList<Donors> = arrayListOf()
+//            for (lists in list){
+//                if(lists.name.lowercase().contains(q.lowercase()))
+//                    newList.add(lists)
+//            }
+//            list.clear()
+//            list.addAll(newList)
+//        }
+//        notifyDataSetChanged()
+//    }
 }

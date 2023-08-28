@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import com.example.nocountrydonation.MainActivity
 import com.example.nocountrydonation.R
 import com.example.nocountrydonation.databinding.FragmentHomeBinding
 import com.example.nocountrydonation.feature_donors.presentation.DonorsViewModel
@@ -24,6 +25,7 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(inflater , container,false)
+        (activity as MainActivity).showBottomNav(true)
         setNavigation()
         setRecyclerview()
         return binding?.root

@@ -1,5 +1,6 @@
 package com.example.nocountrydonation.feature_onboarding.presentation.screen
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -22,11 +23,19 @@ class OnboardingThirdScreen : Fragment() {
         binding = FragmentOnboardingthirdScreenBinding.inflate(inflater, container, false)
         binding?.buttonLogin?.setOnClickListener {
             findNavController().navigate(R.id.action_onboardingFragment_to_loginFragment)
+            onBoardingFinished()
         }
         binding?.buttonSignup?.setOnClickListener {
             findNavController().navigate(R.id.action_onboardingFragment_to_registerFragment)
+            onBoardingFinished()
         }
         return binding?.root
+    }
+    private fun onBoardingFinished(){
+        val sharedPref = requireActivity().getPreferences(Context.MODE_PRIVATE)
+        val editor = sharedPref.edit()
+        editor.putBoolean("onBoardingFinished", true)
+        editor.apply()
     }
     override fun onDestroy() {
         super.onDestroy()
