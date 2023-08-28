@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import coil.load
 import com.bumptech.glide.Glide
 import com.example.nocountrydonation.MainActivity
 import com.example.nocountrydonation.R
@@ -41,7 +42,12 @@ class DonorDetailFragment : Fragment() {
             textViewDonorsName.text = donors.name
             textViewCity.text = donors.city
             textViewBloodType.text = donors.blood
-            Glide.with(root.context).load(donors.image).into(imageViewProfile)
+            //Glide.with(root.context).load(donors.image).into(imageViewProfile)
+            imageViewProfile.load(donors.image){
+                placeholder(R.drawable.error)
+                crossfade(true)
+                crossfade(300)
+            }
         }
 
     }
