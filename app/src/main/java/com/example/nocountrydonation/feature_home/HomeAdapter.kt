@@ -36,5 +36,5 @@ class HomeAdapter(private val list : List<Donors>):RecyclerView.Adapter<HomeAdap
         holder.bind(list2)
     }
 
-    override fun getItemCount()= 2
+    override fun getItemCount()= 1
 }

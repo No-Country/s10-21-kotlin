@@ -50,7 +50,6 @@ class DonorsFragment : Fragment(), DonorsAdapter.OnDonorClicked {
                     }
                     donorsAdapter = DonorsAdapter(result.data,this)
                     binding?.rvDonors?.adapter = donorsAdapter
-                    binding?.progressBarDonors?.isVisible = false
                 }
             }
         })
