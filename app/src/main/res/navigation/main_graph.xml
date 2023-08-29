@@ -70,6 +70,9 @@
             app:destination="@id/homeFragment"
             app:popUpTo="@id/donateFragment4"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_donateFragment4_to_fragmentSucessRequest"
+            app:destination="@id/fragmentSucessRequest" />
     </fragment>
     <fragment
         android:id="@+id/donorsFragment"
@@ -117,4 +120,13 @@
         android:name="com.example.nocountrydonation.feature_search.presentation.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" />
+    <dialog
+        android:id="@+id/fragmentSucessRequest"
+        android:name="com.example.nocountrydonation.FragmentSucessRequest"
+        android:label="fragment_sucess_request"
+        tools:layout="@layout/fragment_sucess_request" >
+        <action
+            android:id="@+id/action_fragmentSucessRequest_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </dialog>
 </navigation>

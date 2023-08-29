@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.navigation.fragment.findNavController
+import com.example.nocountrydonation.FragmentSucessRequest
 import com.example.nocountrydonation.MainActivity
 import com.example.nocountrydonation.R
 import com.example.nocountrydonation.databinding.FragmentDonateBinding
@@ -35,6 +36,7 @@ class DonateFragment : Fragment() {
         binding?.toolbarRequest?.setOnClickListener {
             findNavController().navigate(R.id.action_donateFragment4_to_homeFragment)
         }
+
         return binding?.root
     }
     private fun setAutocomplete(){
@@ -84,7 +86,8 @@ class DonateFragment : Fragment() {
                             Log.w(ContentValues.TAG, "Error adding document", e)
                         }
                     snackBar("Se registro tu turno correctamente")
-                    findNavController().navigate(R.id.action_donateFragment4_to_homeFragment)
+                    //findNavController().navigate(R.id.action_donateFragment4_to_fragmentSucessRequest)
+                    FragmentSucessRequest().show(parentFragmentManager, "ventana")
                 }
             }
         }
