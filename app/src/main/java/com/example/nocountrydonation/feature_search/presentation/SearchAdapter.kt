@@ -1,4 +1,4 @@
-package com.example.nocountrydonation.feature_search
+package com.example.nocountrydonation.feature_search.presentation
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -12,8 +12,8 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import kotlinx.coroutines.tasks.await
 
-class SearchAdapter():RecyclerView.Adapter<SearchAdapter.ViewHolder>(){
-    private var list = emptyList<Donors>()
+class SearchAdapter(private var list: List<Donors>):RecyclerView.Adapter<SearchAdapter.ViewHolder>(){
+
 
     inner class ViewHolder(private val binding : DonorsItemBinding):RecyclerView.ViewHolder(binding.root){
         fun bind(donors: Donors) {
@@ -40,16 +40,16 @@ class SearchAdapter():RecyclerView.Adapter<SearchAdapter.ViewHolder>(){
     }
 
     override fun getItemCount() = list.size
-    private fun getDonors(): Query {
-        return FirebaseFirestore.getInstance().collection("donantes")
-    }
-    @SuppressLint("NotifyDataSetChanged")
-    suspend fun filter(query: String?) {
-        if (query.isNullOrBlank()) {
-            list = getDonors().get().await().toObjects(Donors::class.java)
-        } else {
-            list = getDonors().whereEqualTo("name", "$query").get().await().toObjects(Donors::class.java)
-        }
-        notifyDataSetChanged()
-    }
+//    private fun getDonors(): Query {
+//        return FirebaseFirestore.getInstance().collection("donantes")
+//    }
+//    @SuppressLint("NotifyDataSetChanged")
+//    suspend fun filter(query: String?) {
+//        if (query.isNullOrBlank()) {
+//            list = getDonors().get().await().toObjects(Donors::class.java)
+//        } else {
+//            list = getDonors().whereEqualTo("blood", "$query").get().await().toObjects(Donors::class.java)
+//        }
+//        notifyDataSetChanged()
+//    }
 }

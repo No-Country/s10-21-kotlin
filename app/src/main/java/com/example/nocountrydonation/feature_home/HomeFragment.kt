@@ -60,8 +60,5 @@ class HomeFragment : Fragment() {
         binding?.buttonRequest?.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_requestFragment)
         }
-        binding?.buttonSear?.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
-        }
     }
 }
