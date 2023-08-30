@@ -85,6 +85,7 @@ class DonateFragment : Fragment() {
                         .addOnFailureListener { e ->
                             Log.w(ContentValues.TAG, "Error adding document", e)
                         }
+                    (activity as MainActivity).sendNotification("el usuario ${donor.name} acabada de donar","La donacion se hizo en el Hospital ${donor.hospital}")
                     snackBar("Se registro tu turno correctamente")
                     findNavController().navigate(R.id.action_donateFragment4_to_homeFragment)
                     FragmentSucessRequest().show(parentFragmentManager, "ventana")

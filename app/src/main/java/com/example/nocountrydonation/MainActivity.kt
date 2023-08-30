@@ -1,11 +1,19 @@
 package com.example.nocountrydonation
 
 import android.Manifest
+import android.annotation.SuppressLint
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.content.Context
+import android.content.pm.PackageManager
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.app.ActivityCompat
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
@@ -22,6 +30,9 @@ class MainActivity : AppCompatActivity() {
             val message = if (isGranted) "permiso concedido" else "permiso rechazado"
             Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
         }
+    private val nameCanal = "test"
+    private val idCanal = "id"
+    private val notificationId = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         val screenSplash = installSplashScreen()
         super.onCreate(savedInstanceState)
@@ -51,5 +62,29 @@ class MainActivity : AppCompatActivity() {
     private fun getPrefs() = getPreferences(Context.MODE_PRIVATE).getBoolean("onBoardingFinished", false)
     fun showBottomNav(show: Boolean) {
         binding.bottomNavigationView.isVisible = show
+    }
+    fun sendNotification(title:String, body:String){
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.P){
+            val importCanal = NotificationManager.IMPORTANCE_HIGH
+            val canal = NotificationChannel(idCanal,nameCanal,importCanal)
+            val manager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            manager.createNotificationChannel(canal)
+        }
+
+        val notification = NotificationCompat.Builder(this,idCanal).also {
+            it.setContentTitle(title)
+            it.setContentText(body)
+            it.setSmallIcon(R.drawable.notification)
+            it.priority = NotificationCompat.PRIORITY_HIGH
+        }.build()
+        val notificationManager = NotificationManagerCompat.from(this)
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.POST_NOTIFICATIONS
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            return
+        }
+        notificationManager.notify(notificationId, notification)
     }
 }
