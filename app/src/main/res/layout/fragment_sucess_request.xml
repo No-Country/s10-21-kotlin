@@ -64,11 +64,12 @@
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/roboto_medium"
                 android:gravity="center"
-                android:text="La sangre se solicito con éxito"
+                android:text="La donacion se realizo con éxito"
                 android:textColor="#7E7E7E"
                 android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="@+id/imageView4"
-                app:layout_constraintStart_toStartOf="@+id/imageView4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView6" />
 
             <ImageView
