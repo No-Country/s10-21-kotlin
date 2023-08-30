@@ -86,7 +86,7 @@ class DonateFragment : Fragment() {
                             Log.w(ContentValues.TAG, "Error adding document", e)
                         }
                     snackBar("Se registro tu turno correctamente")
-                    //findNavController().navigate(R.id.action_donateFragment4_to_fragmentSucessRequest)
+                    findNavController().navigate(R.id.action_donateFragment4_to_homeFragment)
                     FragmentSucessRequest().show(parentFragmentManager, "ventana")
                 }
             }
