@@ -63,8 +63,8 @@ class MainActivity : AppCompatActivity() {
     fun showBottomNav(show: Boolean) {
         binding.bottomNavigationView.isVisible = show
     }
-    fun sendNotification(title:String, body:String){
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.P){
+    fun sendNotification(title:String, body:String, description:String){
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q){
             val importCanal = NotificationManager.IMPORTANCE_HIGH
             val canal = NotificationChannel(idCanal,nameCanal,importCanal)
             val manager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
@@ -74,6 +74,7 @@ class MainActivity : AppCompatActivity() {
         val notification = NotificationCompat.Builder(this,idCanal).also {
             it.setContentTitle(title)
             it.setContentText(body)
+            it.setStyle(NotificationCompat.BigTextStyle().bigText(description))
             it.setSmallIcon(R.drawable.notification)
             it.priority = NotificationCompat.PRIORITY_HIGH
         }.build()
